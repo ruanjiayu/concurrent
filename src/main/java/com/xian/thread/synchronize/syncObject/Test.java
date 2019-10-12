@@ -19,8 +19,7 @@ public class Test {
 }
 
 class MyThread extends Thread {
-    // fixme 为什么一定要带上static，不能仅仅是final
-    private static InsertData insertData = new InsertData();
+    static InsertData insertData = new InsertData();
 
     @Override
     public void run() {

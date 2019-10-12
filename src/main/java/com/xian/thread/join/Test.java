@@ -14,10 +14,12 @@ public class Test {
         System.out.println("进入线程"+Thread.currentThread().getName());
         Test test = new Test();
         MyThread thread1 = test.new MyThread();
+        MyThread2 thread2 = test.new MyThread2();
         thread1.start();
+        thread2.start();
         try {
-            System.out.println("线程"+Thread.currentThread().getName()+"等待");
-            thread1.join(1000);
+            System.out.println("线程"+thread1.getName()+"等待");
+            thread1.join();
             System.out.println("线程"+Thread.currentThread().getName()+"继续执行");
         } catch (InterruptedException e) {
             // TODO Auto-generated catch block
@@ -30,7 +32,20 @@ public class Test {
         public void run() {
             System.out.println("进入线程"+Thread.currentThread().getName());
             try {
-                sleep(3000);
+                sleep(4000);
+            } catch (InterruptedException e) {
+                // TODO: handle exception
+            }
+            System.out.println("线程"+Thread.currentThread().getName()+"执行完毕");
+        }
+    }
+
+    class MyThread2 extends Thread{
+        @Override
+        public void run() {
+            System.out.println("进入线程"+Thread.currentThread().getName());
+            try {
+                sleep(2000);
             } catch (InterruptedException e) {
                 // TODO: handle exception
             }

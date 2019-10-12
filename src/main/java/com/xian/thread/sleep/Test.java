@@ -13,7 +13,7 @@ public class Test {
     private int i = 10;
     private Object object = new Object();
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args){
         Test test = new Test();
         MyThread thread1 = test.new MyThread();
         MyThread thread2 = test.new MyThread();
